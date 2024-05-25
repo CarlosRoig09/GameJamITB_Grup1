@@ -23,6 +23,8 @@ public class Enemy : MonoBehaviour
     void Update()
     {
         state.StateUpdate(this);
+        if(rb.velocity.x > 0) transform.eulerAngles = new Vector3(0, 180, 0);
+        else transform.eulerAngles = new();
     }
     public void ChangeState(EnemyBehaviour newState)
     {
