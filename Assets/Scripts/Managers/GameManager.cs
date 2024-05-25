@@ -156,7 +156,7 @@ public class GameManager : MonoBehaviour
                             break;
                     }
                     /*Method to call all objects functionals in day or the spawner behaivour.*/
-                    //OnChangeDay(_currentCycle);
+                    OnChangeDay(_currentCycle);
                 }
         }
     }
