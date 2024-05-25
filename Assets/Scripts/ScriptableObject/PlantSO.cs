@@ -20,4 +20,8 @@ public class PlantSO : ObjectSO
     {
         throw new System.NotImplementedException();
     }
+    public float GetPrice()
+    {
+        return buyPrice * 5;
+    }
 }

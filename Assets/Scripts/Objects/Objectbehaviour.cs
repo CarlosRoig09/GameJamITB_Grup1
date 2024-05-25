@@ -9,6 +9,7 @@ public class ObjectBehaviour : MonoBehaviour, IInteractable
     protected bool highlighted;
     [SerializeField]
     protected ObjectSO objectSO;
+    public ObjectSO GetSO() { return objectSO; }
     protected virtual void Start()
     {
         sr = GetComponent<SpriteRenderer>();

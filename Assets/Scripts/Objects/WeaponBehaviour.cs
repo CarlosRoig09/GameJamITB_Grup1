@@ -4,16 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class SeedBehaviour : ObjectBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
+public class WeaponBehaviour : ObjectBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
-    [SerializeField] private GameObject plantPrefab;
-    private float price;
+    public float price;
     private Image img;
     protected override void Start()
     {
         img = GetComponent<Image>();
         originalColor = img.color;
-        price = (plantPrefab.GetComponent<ObjectBehaviour>().GetSO() as PlantSO).GetPrice();
     }
     protected override void Update()
     {
@@ -35,9 +33,5 @@ public class SeedBehaviour : ObjectBehaviour, IPointerEnterHandler, IPointerExit
         {
             Use();
         }
-    }
-    public GameObject GetPlant()
-    {
-        return plantPrefab;
     }
 }
