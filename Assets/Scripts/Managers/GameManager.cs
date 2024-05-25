@@ -212,7 +212,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         UnityEngine.Debug.Log("Game Over");
-        LoadScene(GameScenes.GameOverScene);
+        //LoadScene(GameScenes.GameOverScene);
     }
 
     public void ExitGameScene()
