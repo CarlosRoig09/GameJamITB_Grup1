@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1891873701619477363}
   - component: {fileID: 4070883186422519673}
   - component: {fileID: -1328773566609374941}
+  - component: {fileID: 8459248183529530626}
   m_Layer: 0
   m_Name: PlantPrefab 2
   m_TagString: Plant
@@ -98,4 +99,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 0
-  objectSO: {fileID: 11400000, guid: 1863774af4f1fef4fa73d7f6a9c50650, type: 2}
+  objectSO: {fileID: 11400000, guid: 907d4f24ff61569428469bf95392b672, type: 2}
+--- !u!95 &8459248183529530626
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 541241531458296821}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5c166e903b9b1bd449b28833afe1bfea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

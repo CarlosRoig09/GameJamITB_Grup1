@@ -36,7 +36,6 @@ public class SeedBehaviour : ObjectBehaviour, IPointerEnterHandler, IPointerExit
             var waterController = GameObjectLibrary.Instance.WaterController.GetComponent<WaterController>();
             if ((objectSO as PlantSO).Price <= waterController.WaterValue)
             {
-                waterController.ModWater((objectSO as PlantSO).Price * -1);
                 Use();
             }
         }
