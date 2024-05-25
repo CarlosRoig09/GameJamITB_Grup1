@@ -7,6 +7,7 @@ public class ShieldCrossSO : WeaponSO
 {
     public override void OnUse()
     {
+        Debug.Log("Cross");
 
     }
 }
