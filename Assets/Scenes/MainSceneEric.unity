@@ -935,10 +935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59257cfbb45a2049a96a487930fc06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   isInteractable: 0
-  selected: 0
-  highlighted: 0
   objectSO: {fileID: 0}
   plantPrefab: {fileID: 541241531458296821, guid: 078564b308940ad4c9947026be06479d, type: 3}
 --- !u!1 &791416549
@@ -991,6 +988,7 @@ MonoBehaviour:
   TimerUI: {fileID: 0}
   DaysUI: {fileID: 0}
   WaterController: {fileID: 0}
+  Weapons: []
 --- !u!1001 &823786184
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1530,10 +1528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59257cfbb45a2049a96a487930fc06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   isInteractable: 0
-  selected: 0
-  highlighted: 0
   objectSO: {fileID: 0}
   plantPrefab: {fileID: 541241531458296821, guid: b942d8747c397544987a129458a703d9, type: 3}
 --- !u!1 &1441155118
@@ -1750,11 +1745,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f59257cfbb45a2049a96a487930fc06d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  originalColor: {r: 0, g: 0, b: 0, a: 0}
   isInteractable: 0
-  selected: 0
-  highlighted: 0
-  objectSO: {fileID: 11400000, guid: 0bfa69aae359d674ead23253759dbdde, type: 2}
+  objectSO: {fileID: 0}
   plantPrefab: {fileID: 541241531458296821, guid: 44c69d6d97b24ac4992a2b2dd4b332cc, type: 3}
 --- !u!1 &1510932141
 GameObject:
