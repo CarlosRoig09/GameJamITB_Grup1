@@ -1,15 +1,12 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Net.Sockets;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ObjectBehaviour : MonoBehaviour, IInteractable
 {
     private SpriteRenderer sr;
     private Color originalColor;
     public bool isInteractable;
-    public bool selected;
+    private bool selected;
+    private bool highlighted;
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -17,7 +14,7 @@ public class ObjectBehaviour : MonoBehaviour, IInteractable
     }
     private void Update()
     {
-        sr.color = selected ? Color.red : originalColor;
+        sr.color = selected ? Color.red : highlighted ? Color.yellow : originalColor;
     }
 
     // Mouse Interactions
@@ -46,7 +43,7 @@ public class ObjectBehaviour : MonoBehaviour, IInteractable
 
     public void HighLight(bool light)
     {
-        if(TryGetComponent(out SpriteRenderer sr)) sr.color = light ? Color.yellow : originalColor;
+        highlighted = light;
     }
 
     public void Use()
