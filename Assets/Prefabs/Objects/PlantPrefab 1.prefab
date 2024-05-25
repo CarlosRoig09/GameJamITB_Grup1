@@ -98,4 +98,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isInteractable: 0
-  objectSO: {fileID: 11400000, guid: 907d4f24ff61569428469bf95392b672, type: 2}
+  objectSO: {fileID: 11400000, guid: 0bfa69aae359d674ead23253759dbdde, type: 2}
