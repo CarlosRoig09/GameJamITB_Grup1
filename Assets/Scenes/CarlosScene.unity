@@ -1337,6 +1337,10 @@ PrefabInstance:
       value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
+      propertyPath: _currentCycle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
       propertyPath: _vchangeNight
       value: 8
       objectReference: {fileID: 0}

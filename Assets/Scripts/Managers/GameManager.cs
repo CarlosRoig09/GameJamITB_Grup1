@@ -95,29 +95,6 @@ public class GameManager : MonoBehaviour
             UIManager.Instance.ModifyTimeUI(_realTime.ToString());
             }
         ControlDay();
-        //}
-        //else if (_scene == EnumLibrary.Scene.GameOverScreen)
-        //{
-        //    if (!_gameOverActions)
-        //    {
-        //        _gameOverActions = true;
-        //        GameObject.Find("Retry").GetComponent<Button>().onClick.AddListener(UIManager.Instance.GameButton);
-        //        GameObject.Find("Menu").GetComponent<Button>().onClick.AddListener(UIManager.Instance.MenuButton);
-        //        UIManager.Instance.ShowPuntuationGameOver(_puntuation);
-        //    }
-        //}
-        //else if (_scene == EnumLibrary.Scene.GameMenu)
-        //{
-        //    if (!_menuActions)
-        //    {
-        //        _menuActions = true;
-        //        GameObject.Find("Escape").GetComponent<Button>().onClick.AddListener(UIManager.Instance.HideSettingsPopUp);
-        //        UIManager.Instance.HideSettingsPopUp();
-        //        GameObject.Find("Game").GetComponent<Button>().onClick.AddListener(UIManager.Instance.GameButton);
-        //        GameObject.Find("Exit").GetComponent<Button>().onClick.AddListener(UIManager.Instance.ExitGame);
-        //        GameObject.Find("Settings").GetComponent<Button>().onClick.AddListener(UIManager.Instance.ShowSettingsPopUp);
-        //    }
-        //}
     }
     void ChangeBetweenScene()
     {
@@ -214,7 +191,6 @@ public class GameManager : MonoBehaviour
 
     public void ExitGameScene()
     {
-        //_puntuation = GameObjectLibrary.Instance.PuntuationControllerScript.Value;
     }
 
     public void LoadScene(GameScenes escena)
