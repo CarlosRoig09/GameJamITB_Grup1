@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,7 +8,9 @@ public class ShieldCrossSO : WeaponSO
 {
     public override void OnUse()
     {
+   
         Debug.Log("Cross");
-
+        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        Instantiate(Weapon,mousePos,Quaternion.identity);
     }
 }

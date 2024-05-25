@@ -8,4 +8,5 @@ public abstract class WeaponSO : ObjectSO
     public int Quantity;
     public int QuantityLimit;
     public float Countdown;
+    public GameObject Weapon;
 }

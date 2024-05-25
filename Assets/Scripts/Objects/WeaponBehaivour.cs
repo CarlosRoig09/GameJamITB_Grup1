@@ -20,9 +20,15 @@ public class WeaponBehaivour : ObjectBehaviour, IPointerEnterHandler, IPointerEx
 
     public void OnPointerDown(PointerEventData eventData)
     {
+
         if (Check())
         {
-            Use();
+            var waterController = GameObjectLibrary.Instance.WaterController.GetComponent<WaterController>();
+            if ((objectSO as WeaponSO).Price <= waterController.WaterValue)
+            {
+                waterController.ModWater((objectSO as WeaponSO).Price * -1);
+                Use();
+            }
         }
     }
 
@@ -31,7 +37,7 @@ public class WeaponBehaivour : ObjectBehaviour, IPointerEnterHandler, IPointerEx
 
     private void Awake()
     {
-        transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = objectSO.Price.ToString();
+        //transform.GetChild(0).gameObject.GetComponent<TextMeshProUGUI>().text = objectSO.Price.ToString();
     }
 
     protected override void Start()
