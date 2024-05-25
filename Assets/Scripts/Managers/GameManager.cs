@@ -73,6 +73,8 @@ public class GameManager : MonoBehaviour
             _instance = this;
         }
     }
+    [Header("Selectables")]
+    public GameObject selected;
     // Start is called before the first frame update
     void Start()
     {
@@ -154,7 +156,7 @@ public class GameManager : MonoBehaviour
                             break;
                     }
                     /*Method to call all objects functionals in day or the spawner behaivour.*/
-                    OnChangeDay(_currentCycle);
+                    //OnChangeDay(_currentCycle);
                 }
         }
     }

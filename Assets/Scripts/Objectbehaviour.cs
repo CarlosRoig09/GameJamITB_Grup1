@@ -51,9 +51,9 @@ public class ObjectBehaviour : MonoBehaviour, IInteractable
         if (Check())
         {
             // Si se cumplen las condiciones del Check(), se ejecuta el uso, que puede ser tanto dejar seleccionado el slot cambiando el lastSelectable cómo comprar un arma llamando al Inventory y más
-            if (ClickManager.instance.selected != null && ClickManager.instance.selected.TryGetComponent(out ObjectBehaviour ob)) ob.UnSelect();
+            if (GameManager.Instance.selected != null && GameManager.Instance.selected.TryGetComponent(out ObjectBehaviour ob)) ob.UnSelect();
             selected = true;
-            ClickManager.instance.selected = gameObject;
+            GameManager.Instance.selected = gameObject;
             return;
         }
     }
