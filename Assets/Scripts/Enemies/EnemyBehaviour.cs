@@ -23,6 +23,7 @@ public class EnemyFollowing : EnemyBehaviour
             if (Vector2.Distance(enemy.plantObjective.transform.position, enemy.transform.position) < 1)
             {
                 enemy.ChangeState(enemy.leaving);
+                Object.Destroy(enemy.plantObjective);
             }
             return;
         }
@@ -31,7 +32,6 @@ public class EnemyFollowing : EnemyBehaviour
     }
     public override void StateExit(Enemy enemy)
     {
-        Object.Destroy(enemy.plantObjective);
     }
 }
 public class EnemyLeaving : EnemyBehaviour

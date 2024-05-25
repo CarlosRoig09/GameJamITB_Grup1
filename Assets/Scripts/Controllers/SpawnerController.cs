@@ -1,22 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
-public class SpawnerController : MonoBehaviour
+public class SpawnerController : MonoBehaviour, IOnStartGame
 {
     [SerializeField] private GameObject EnemyPrefab;
     [SerializeField] private float spawnerCooldown;
     public bool canSpawn;
+    private DayCicle _currentCycle;
     private void Start()
     {
-        canSpawn = true;
+
     }
 
     private void Update()
     {
         CheckAnyPlant();
         // Si es de noche y ...
-        if (canSpawn)
+        if (canSpawn&&_currentCycle==DayCicle.Night)
         {
             Spawn();
         }
@@ -37,5 +39,23 @@ public class SpawnerController : MonoBehaviour
         canSpawn = false;
         yield return new WaitForSecondsRealtime(spawnerCooldown);
         canSpawn = true;
+    }
+
+    private void CallSpawn(DayCicle dayCicle)
+    {
+        _currentCycle = dayCicle;
+        if (DayCicle.Night == dayCicle)
+            canSpawn = true;
+        else
+        {
+            foreach (var enemy in FindObjectsOfType<MonoBehaviour>(true).OfType<Enemy>().ToArray())
+                enemy.ChangeState(enemy.leaving);
+            canSpawn = false;
+        }
+    }
+
+    public void OnStartGame()
+    {
+        GameManager.Instance.OnChangeDay += CallSpawn;
     }
 }
