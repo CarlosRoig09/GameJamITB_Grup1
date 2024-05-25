@@ -82,7 +82,7 @@ public class GameManager : MonoBehaviour
         }
     }
     [Header("Selectables")]
-    public GameObject selected;
+    public ObjectSO selected;
     // Start is called before the first frame update
     void Start()
     {

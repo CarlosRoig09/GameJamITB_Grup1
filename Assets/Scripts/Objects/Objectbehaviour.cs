@@ -7,6 +7,8 @@ public class ObjectBehaviour : MonoBehaviour, IInteractable
     public bool isInteractable;
     private bool selected;
     private bool highlighted;
+    [SerializeField]
+    protected ObjectSO objectSO;
     private void Start()
     {
         sr = GetComponent<SpriteRenderer>();
@@ -35,7 +37,7 @@ public class ObjectBehaviour : MonoBehaviour, IInteractable
     }
 
     // IInteractable
-    public bool Check()
+    public virtual bool Check()
     {
         // Condiciones necesarias para el Use (Ej: Para seleccionar una semilla necesitas el suficiente dinero para pagarla.)
         return true;
@@ -51,9 +53,9 @@ public class ObjectBehaviour : MonoBehaviour, IInteractable
         if (Check())
         {
             // Si se cumplen las condiciones del Check(), se ejecuta el uso, que puede ser tanto dejar seleccionado el slot cambiando el lastSelectable cómo comprar un arma llamando al Inventory y más
-            if (GameManager.Instance.selected != null && GameManager.Instance.selected.TryGetComponent(out ObjectBehaviour ob)) ob.UnSelect();
+            if (GameManager.Instance.selected != null) GameManager.Instance.selected.behaviour.UnSelect();
             selected = true;
-            GameManager.Instance.selected = gameObject;
+            GameManager.Instance.selected = objectSO;
             return;
         }
     }
