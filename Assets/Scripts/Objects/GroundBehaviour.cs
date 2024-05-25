@@ -7,7 +7,7 @@ public class GroundBehaviour : ObjectBehaviour
 {
     public override void Use()
     {
-        if (GameManager.Instance.selected != null && GameManager.Instance.selected.TryGetComponent(out SeedBehaviour sb))
+        if (GameManager.Instance.selected != null && GameManager.Instance.selected.TryGetComponent(out SeedBehaviour sb) && sb.Check())
         {
             var plant = Instantiate(sb.GetPlant(), gameObject.transform);
             plant.tag = "Plant";

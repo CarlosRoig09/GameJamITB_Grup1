@@ -1,21 +1,24 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
 public abstract class ObjectBehaviour : MonoBehaviour, IInteractable
 {
-    private Color originalColor;
+    private SpriteRenderer sr;
+    public Color originalColor;
     public bool isInteractable;
-    private bool selected;
-    private bool highlighted;
+    public bool selected;
+    public bool highlighted;
     [SerializeField]
     protected ObjectSO objectSO;
-    private void Start()
+    protected virtual void Start()
     {
-        GetOriginalColor();
+        sr = GetComponent<SpriteRenderer>();
+        originalColor = sr.color;
     }
-    private void Update()
+    protected virtual void Update()
     {
-        UpdateColor();
+        sr.color = selected ? Color.magenta : highlighted ? Color.yellow : originalColor;
     }
 
     // Mouse Interactions
@@ -34,15 +37,10 @@ public abstract class ObjectBehaviour : MonoBehaviour, IInteractable
             Use();
         }
     }
-    private void UpdateColor()
+
+    public float GetPrice()
     {
-        if (TryGetComponent(out SpriteRenderer sr))sr.color = selected ? Color.magenta : highlighted ? Color.yellow : originalColor;
-        if (TryGetComponent(out Image img)) img.color = selected ? Color.magenta : highlighted ? Color.yellow : originalColor;
-    }
-    private void GetOriginalColor()
-    {
-        if (TryGetComponent(out SpriteRenderer sr)) originalColor = sr.color;
-        if (TryGetComponent(out Image img)) originalColor = img.color;
+        return objectSO.price;
     }
 
     // IInteractable
@@ -62,9 +60,9 @@ public abstract class ObjectBehaviour : MonoBehaviour, IInteractable
         if (Check())
         {
             // Si se cumplen las condiciones del Check(), se ejecuta el uso, que puede ser tanto dejar seleccionado el slot cambiando el lastSelectable cómo comprar un arma llamando al Inventory y más
-            if (GameManager.Instance.selected != null) GameManager.Instance.selected.behaviour.UnSelect();
+            if (GameManager.Instance.selected != null) GameManager.Instance.selected.UnSelect();
             selected = true;
-            GameManager.Instance.selected = objectSO;
+            GameManager.Instance.selected = this;
             return;
         }
     }

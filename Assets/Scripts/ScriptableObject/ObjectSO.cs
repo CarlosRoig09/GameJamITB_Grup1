@@ -9,7 +9,7 @@ public abstract class ObjectSO : ScriptableObject
     [SerializeField]
     private string Description;
     [SerializeField]
-    private float price;
+    public float price;
     public ObjectBehaviour behaviour;
     public abstract void OnUse();
 }
