@@ -40,14 +40,22 @@ public class GameManager : MonoBehaviour
             return _instance;
         }
     }
+    //GameManager Values
     private GameScenes _scene;
     private bool _calledStartGame;
     public delegate void ChangeScene(string scene);
     private bool _menuActions;
     private bool _gameOverActions;
     private int _puntuation;
+
+    [Header("WaterValues")]
+    //Water Values
+    private float _iRPF;
     public float WaterInitValue;
     public float LimitWater;
+
+
+    [Header("TimeValues")]
     [SerializeField]
     private float _timeSpeed;
     [SerializeField]
@@ -132,6 +140,8 @@ public class GameManager : MonoBehaviour
         {
             _days = _realTime.Days + 1;
             UIManager.Instance.ModifyDays(_days);
+            if(_days>1)
+             WaterTaxes();
         }
 
         if (_timeChange > _timer)
@@ -155,10 +165,16 @@ public class GameManager : MonoBehaviour
                             _currentCycle = DayCicle.Day;
                             break;
                     }
+                    
                     /*Method to call all objects functionals in day or the spawner behaivour.*/
                     OnChangeDay(_currentCycle);
                 }
         }
+    }
+
+    private void WaterTaxes()
+    {
+        GameObjectLibrary.Instance.WaterController.GetComponent<WaterController>().ModWater(_iRPF * -1);
     }
 
     //public void SubscribeEvent(IWaitTheEvent waitTheEvent)
