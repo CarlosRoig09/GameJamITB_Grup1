@@ -84,7 +84,12 @@ public class UIManager : MonoBehaviour, IOnStartGame
 
     public void ModifyTimeUI(string timer)
     {
-        GameObjectLibrary.Instance.WaterLimitUI.GetComponent<TextMeshProUGUI>().text = timer;
+        GameObjectLibrary.Instance.TimerUI.GetComponent<TextMeshProUGUI>().text = "Time (hh/mm) : " + timer;
+    }
+
+    public void ModifyDays(int days)
+    {
+        GameObjectLibrary.Instance.DaysUI.GetComponent<TextMeshProUGUI>().text = "Days : " + days.ToString();
     }
     /*No delete could be used for weapons*/
     //public void AddCofeeHUD()

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Rendering;
@@ -34,7 +35,7 @@ public class GameManager : MonoBehaviour
         {
             if (_instance == null)
             {
-                Debug.LogError("Game Manager is NULL");
+                UnityEngine.Debug.LogError("Game Manager is NULL");
             }
             return _instance;
         }
@@ -53,10 +54,14 @@ public class GameManager : MonoBehaviour
     private float _timeChange;
     private float _timer;
     private TimeSpan _realTime;
-    [SerializeField]
-    private TimeSpan _startTime;
+    private readonly TimeSpan _startTime = new(8, 0, 0);
+    private int _days;
     public delegate void ChangeDay(DayCicle dayTime);
     public ChangeDay OnChangeDay;
+    [SerializeField]
+    private int _vchangeNight;
+    [SerializeField]
+    private int _vchangeDay;
     public DayCicle _currentCycle;
     private void Awake()
     {
@@ -80,17 +85,17 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         ChangeBetweenScene();
-        if (_scene == GameScenes.GameScene)
-        {
+        //if (_scene == GameScenes.GameScene)
+        //{
             if (!_calledStartGame)
             {
                 _realTime = _startTime;
                 _calledStartGame = true;
-                _currentCycle = DayCicle.Day;
                 InitStartClases();
+            UIManager.Instance.ModifyTimeUI(_realTime.ToString());
             }
-            ControlDay();
-        }
+        ControlDay();
+        //}
         //else if (_scene == EnumLibrary.Scene.GameOverScreen)
         //{
         //    if (!_gameOverActions)
@@ -144,29 +149,36 @@ public class GameManager : MonoBehaviour
 
     private void ControlDay()
     {
+        if (_startTime.Hours == _realTime.Hours)
+        {
+            _days = _realTime.Days + 1;
+            UIManager.Instance.ModifyDays(_days);
+        }
+
         if (_timeChange > _timer)
         {
             _timer += Time.deltaTime * _timeSpeed;
         }
         else
         {
+            _timer = 0;
             _realTime += TimeSpan.FromMinutes(1);
-            UIManager.Instance.ModifyTimeUI(_realTime.ToString("hh:mm"));
-            if (_realTime.Hours%12==0)
-            {
-                switch (_currentCycle)
+            UIManager.Instance.ModifyTimeUI(_realTime.ToString(@"hh\:mm"));
+            if (_realTime.Hours == _vchangeDay || _realTime.Hours == _vchangeNight)
+                if(_realTime.Minutes == 1)
                 {
-                    case DayCicle.Day:
-                        _currentCycle = DayCicle.Night; 
-                        break;
-                    case DayCicle.Night:
-                        _currentCycle = DayCicle.Day;
-                        break;
+                    switch(_currentCycle)
+                    {
+                        case DayCicle.Day:
+                            _currentCycle = DayCicle.Night;
+                            break;
+                        case DayCicle.Night:
+                            _currentCycle = DayCicle.Day;
+                            break;
+                    }
+                    /*Method to call all objects functionals in day or the spawner behaivour.*/
+                    //OnChangeDay(_currentCycle);
                 }
-                //Change Day
-                //OnChangeDay(_currentCycle);
-                Debug.Log(_currentCycle);
-            }
         }
     }
 
@@ -196,7 +208,7 @@ public class GameManager : MonoBehaviour
 
     public void GameOver()
     {
-        Debug.Log("Game Over");
+        UnityEngine.Debug.Log("Game Over");
         LoadScene(GameScenes.GameOverScene);
     }
 

@@ -21,6 +21,7 @@ public class GameObjectLibrary : MonoBehaviour
     public GameObject WaterValueUI;
     public GameObject WaterLimitUI;
     public GameObject TimerUI;
+    public GameObject DaysUI;
     private void Awake()
     {
         if (_instance != null)
@@ -35,5 +36,6 @@ public class GameObjectLibrary : MonoBehaviour
         WaterValueUI = TopUIPanel.transform.GetChild(0).gameObject;
         WaterLimitUI = TopUIPanel.transform.GetChild(1).gameObject;
         TimerUI = TopUIPanel .transform.GetChild(2).gameObject;
+        DaysUI = TopUIPanel.transform .GetChild(3).gameObject;
     }
 }
