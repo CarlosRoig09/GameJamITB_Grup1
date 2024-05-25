@@ -44,3 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2831baf62f94153449e66348a05ea56b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  WaterInitValue: 1000
+  LimitWater: 1000
+  _timeSpeed: 100
+  _timeChange: 1
+  _vchangeNight: 8
+  _vchangeDay: 20
+  _currentCycle: 1
+  selected: {fileID: 0}
+  font: {fileID: 11400000, guid: db4683bf17f21e94a98e0e1fcfe8b56d, type: 2}

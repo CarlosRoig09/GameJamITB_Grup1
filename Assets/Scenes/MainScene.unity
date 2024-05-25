@@ -5233,42 +5233,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameManager
       objectReference: {fileID: 0}
-    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
-      propertyPath: font
-      value: 
-      objectReference: {fileID: 11400000, guid: db4683bf17f21e94a98e0e1fcfe8b56d, type: 2}
-    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
-      propertyPath: LimitWater
-      value: 1000
-      objectReference: {fileID: 0}
-    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
-      propertyPath: _timeSpeed
-      value: 100
-      objectReference: {fileID: 0}
-    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
-      propertyPath: _timeChange
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
-      propertyPath: _vchangeDay
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
-      propertyPath: _currentCycle
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
-      propertyPath: _vchangeNight
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
-      propertyPath: WaterInitValue
-      value: 1000
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

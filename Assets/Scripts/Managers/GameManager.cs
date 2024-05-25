@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
@@ -103,26 +104,32 @@ public class GameManager : MonoBehaviour
             item.font = font;
         }
         ChangeBetweenScene();
-        //if (_scene == GameScenes.GameScene)
-        //{
+        if (_scene == GameScenes.GameScene)
+        {
             if (!_calledStartGame)
             {
                 _realTime = _startTime;
                 _calledStartGame = true;
                 InitStartClases();
-            UIManager.Instance.ModifyTimeUI(_realTime.ToString());
+                UIManager.Instance.ModifyTimeUI(_realTime.ToString());
             }
-        ControlDay();
+            ControlDay();
+        }
+    }
+    public void ChangeScene2(string name)
+    {
+        if (name == "Exit") Application.Quit();
+        SceneManager.LoadScene(name);
     }
     void ChangeBetweenScene()
     {
         switch (SceneManager.GetActiveScene().name)
         {
-            case "GameScene":
+            case "MainScene":
             case "demo":
                 _scene = GameScenes.GameScene;
                 break;
-            case "Menú":
+            case "MainMenu":
                 _scene =GameScenes.TitleScreen;
                 break;
             case "GameOver":
@@ -212,7 +219,7 @@ public class GameManager : MonoBehaviour
     public void GameOver()
     {
         UnityEngine.Debug.Log("Game Over");
-        //LoadScene(GameScenes.GameOverScene);
+        LoadScene(GameScenes.TitleScreen);
     }
 
     public void ExitGameScene()
@@ -234,7 +241,7 @@ public class GameManager : MonoBehaviour
                 break;
             case GameScenes.TitleScreen:
                 _menuActions = false;
-                SceneManager.LoadScene("Menú");
+                SceneManager.LoadScene("MainMenu");
                 break;
             case GameScenes.GameOverScene:
                 _gameOverActions = false;
