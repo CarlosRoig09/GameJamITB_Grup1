@@ -1,20 +1,19 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class ObjectBehaviour : MonoBehaviour, IInteractable
+public abstract class ObjectBehaviour : MonoBehaviour, IInteractable
 {
-    private SpriteRenderer sr;
     private Color originalColor;
     public bool isInteractable;
     private bool selected;
     private bool highlighted;
     private void Start()
     {
-        sr = GetComponent<SpriteRenderer>();
-        originalColor = sr.color;
+        GetOriginalColor();
     }
     private void Update()
     {
-        sr.color = selected ? Color.red : highlighted ? Color.yellow : originalColor;
+        UpdateColor();
     }
 
     // Mouse Interactions
@@ -33,9 +32,19 @@ public class ObjectBehaviour : MonoBehaviour, IInteractable
             Use();
         }
     }
+    private void UpdateColor()
+    {
+        if (TryGetComponent(out SpriteRenderer sr))sr.color = selected ? Color.magenta : highlighted ? Color.yellow : originalColor;
+        if (TryGetComponent(out Image img)) img.color = selected ? Color.magenta : highlighted ? Color.yellow : originalColor;
+    }
+    private void GetOriginalColor()
+    {
+        if (TryGetComponent(out SpriteRenderer sr)) originalColor = sr.color;
+        if (TryGetComponent(out Image img)) originalColor = img.color;
+    }
 
     // IInteractable
-    public bool Check()
+    public virtual bool Check()
     {
         // Condiciones necesarias para el Use (Ej: Para seleccionar una semilla necesitas el suficiente dinero para pagarla.)
         return true;
@@ -46,7 +55,7 @@ public class ObjectBehaviour : MonoBehaviour, IInteractable
         highlighted = light;
     }
 
-    public void Use()
+    public virtual void Use()
     {
         if (Check())
         {

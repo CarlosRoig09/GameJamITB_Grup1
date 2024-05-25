@@ -10,11 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 7818582210869961758}
   - component: {fileID: 3312213477261266708}
-  - component: {fileID: 3600420569295828506}
   - component: {fileID: 380439121570196238}
   - component: {fileID: 17351564996182227}
+  - component: {fileID: 2489882630200727873}
   m_Layer: 0
-  m_Name: SlotPrefab
+  m_Name: GroundSlot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -91,20 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3600420569295828506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1185683631161427782}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a04ebfa483da85344b18d179c70b264c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isInteractable: 0
-  selected: 0
 --- !u!50 &380439121570196238
 Rigidbody2D:
   serializedVersion: 4
@@ -177,3 +163,16 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &2489882630200727873
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1185683631161427782}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d9065847a3f9dce4ba4d3340296ffa47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isInteractable: 0
