@@ -8,9 +8,9 @@ public class WeaponAreaBehaivour : ObjectBehaviour
     {
         if (GameManager.Instance.selected != null && GameManager.Instance.selected.TryGetComponent(out WeaponBehaivour sb) && sb.Check())
         {
-           sb.weaponSO.OnUse();
-            if (GameManager.Instance.selected != null) GameManager.Instance.selected.UnSelect();
-            selected = false;
+            sb.weaponSO.OnUse();
+            GameManager.Instance.selected.UnSelect();
+            GameManager.Instance.selected = null;
         }
     }
 }
