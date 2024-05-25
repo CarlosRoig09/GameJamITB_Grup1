@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "WeaponSO", menuName = "ObjectsSO/WeaponSO")]
-public class WeaponSO : ScriptableObject
+public abstract class WeaponSO : ObjectSO
 {
-
+    public int Index;
+    public int Quantity;
+    public int QuantityLimit;
+    public float Countdown;
 }

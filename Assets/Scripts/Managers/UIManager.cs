@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
+using UnityEngine.U2D;
 
 public class UIManager : MonoBehaviour, IOnStartGame
 {
@@ -91,43 +93,16 @@ public class UIManager : MonoBehaviour, IOnStartGame
     {
         GameObjectLibrary.Instance.DaysUI.GetComponent<TextMeshProUGUI>().text = "Days : " + days.ToString();
     }
-    /*No delete could be used for weapons*/
-    //public void AddCofeeHUD()
-    //{
-    //    if (_firstTime)
-    //    {
-    //        ClickButton(EnumLibrary.ButtonType.Shift);
-    //        _firstTime = false;
-    //    }
-    //    _cofees[_cofeesCount].GetComponent<SpritesMethods>().ChangeSpriteToTheNextOne();
-    //    _cofees[_cofeesCount].GetComponent<Animator>().SetBool("Smoke", true);
-    //    _cofeesCount += 1;
-    //}
-    /*No delete, could be used for weapons*/
-    //public void RemoveCofeeHUD()
-    //{
-    //    _cofees[_cofeesCount - 1].GetComponent<SpritesMethods>().ChangeSpriteToTheNextOne();
-    //    _cofees[_cofeesCount - 1].GetComponent<Animator>().SetBool("Smoke", false);
-    //    _cofeesCount -= 1;
-    //}
+    
+    public void ModifyWeaponIcon(SpriteRenderer sprite,int index)
+    {
+        GameObjectLibrary.Instance.Weapons[index].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprite.sprite;
+    }
 
-    //public void CountCofee(int id, int count, int maxCount)
-    //{
-    //    int limit;
-    //    switch (id)
-    //    {
-    //        case 0:
-    //            limit = _cofees.Length - 2;
-    //            break;
-    //        case 1:
-    //            limit = _cofees.Length - 1;
-    //            break;
-    //        default:
-    //            limit = _cofees.Length - 2;
-    //            break;
-    //    }
-    //    _cofees[limit].GetComponent<TMP_Text>().text = count + "/" + maxCount;
-    //}
+    public void ModifyWeaponQuantity(int quantity, int index)
+    {
+        GameObjectLibrary.Instance.Weapons[index].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = quantity.ToString();
+    }
 
     public void MenuButton()
     {

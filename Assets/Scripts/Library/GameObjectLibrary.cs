@@ -23,6 +23,7 @@ public class GameObjectLibrary : MonoBehaviour
     public GameObject TimerUI;
     public GameObject DaysUI;
     public GameObject WaterController;
+    public List<GameObject> Weapons;
     private void Awake()
     {
         if (_instance != null)
@@ -39,5 +40,10 @@ public class GameObjectLibrary : MonoBehaviour
         TimerUI = TopUIPanel .transform.GetChild(2).gameObject;
         DaysUI = TopUIPanel.transform .GetChild(3).gameObject;
         WaterController = GameObject.Find("WaterController");
+        var weaponPanel = GameObject.Find("WeaponPanel");
+        for (int i = 0; i < weaponPanel.transform.childCount; i++) 
+        {
+            Weapons.Add(weaponPanel.transform.GetChild(i).gameObject);
+        }
     }
 }

@@ -4,12 +4,10 @@ using UnityEngine;
 
 public abstract class ObjectSO : ScriptableObject
 {
-    [SerializeField]
-    private string Name;
-    [SerializeField]
-    private string Description;
-    [SerializeField]
-    private float price;
+    public string Name;
+    public string Description;
+    public float Price;
     public ObjectBehaviour behaviour;
+    public SpriteRenderer UIsprite; 
     public abstract void OnUse();
 }
