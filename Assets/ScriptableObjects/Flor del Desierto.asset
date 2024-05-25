@@ -14,9 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: 
   Description: 
-  price: 0
+  Price: 3
   behaviour: {fileID: 0}
+  UIsprite: {fileID: 0}
+  SoldPrice: 8
+  TimeGrow: 5
   buyPrice: 3
   time: 2
   waterNeed: 3
   sellPrice: 2
+  plantPrefab: {fileID: 0}
