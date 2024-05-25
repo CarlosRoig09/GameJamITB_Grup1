@@ -3,18 +3,18 @@ using UnityEngine;
 public class ObjectBehaviour : MonoBehaviour, IInteractable
 {
     private SpriteRenderer sr;
-    private Color originalColor;
+    protected Color originalColor;
     public bool isInteractable;
-    private bool selected;
-    private bool highlighted;
+    protected bool selected;
+    protected bool highlighted;
     [SerializeField]
     protected ObjectSO objectSO;
-    private void Start()
+    protected virtual void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         originalColor = sr.color;
     }
-    private void Update()
+    protected virtual void Update()
     {
         sr.color = selected ? Color.red : highlighted ? Color.yellow : originalColor;
     }

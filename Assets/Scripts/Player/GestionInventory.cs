@@ -25,13 +25,23 @@ public class GestionInventory : MonoBehaviour, IOnStartGame
                 inventory.Weapons.Add(weaponData);
                 //Show it in UI method;
                 UIManager.Instance.ModifyWeaponQuantity(weaponData.Quantity, weaponData.Index);
-                //UIManager.Instance.ModifyWeaponIcon(weaponData.UIsprite, weaponData.Quantity);
+                UIManager.Instance.ModifyWeaponIcon(weaponData.UIsprite, weaponData.Quantity);
                 return true;
             }
             UIManager.Instance.ModifyWeaponQuantity(weaponData.Quantity, weaponData.Index);
         }
         return false;
     }
+
+    public bool UseWeapon(WeaponSO weaponData)
+    {
+        if (weaponData.Quantity > 0) 
+        {
+            weaponData.Quantity -= 1;
+            return true;
+        }
+        return false;
+}
     private bool IsInTheList(WeaponSO weaponData)
     {
         foreach (var weapon in inventory.Weapons)

@@ -8,6 +8,6 @@ public abstract class ObjectSO : ScriptableObject
     public string Description;
     public float Price;
     public ObjectBehaviour behaviour;
-    public SpriteRenderer UIsprite; 
+    public Sprite UIsprite; 
     public abstract void OnUse();
 }

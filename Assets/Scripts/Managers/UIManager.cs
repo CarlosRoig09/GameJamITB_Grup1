@@ -1,9 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
-using Microsoft.Unity.VisualStudio.Editor;
 using TMPro;
 using UnityEngine;
-using UnityEngine.U2D;
+using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour, IOnStartGame
 {
@@ -94,14 +93,14 @@ public class UIManager : MonoBehaviour, IOnStartGame
         GameObjectLibrary.Instance.DaysUI.GetComponent<TextMeshProUGUI>().text = "Days : " + days.ToString();
     }
     
-    public void ModifyWeaponIcon(SpriteRenderer sprite,int index)
+    public void ModifyWeaponIcon(Sprite sprite,int index)
     {
-        GameObjectLibrary.Instance.Weapons[index].transform.GetChild(0).GetComponent<SpriteRenderer>().sprite = sprite.sprite;
+        GameObjectLibrary.Instance.Weapons[index].GetComponent<Image>().sprite = sprite;
     }
 
     public void ModifyWeaponQuantity(int quantity, int index)
     {
-        GameObjectLibrary.Instance.Weapons[index].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = quantity.ToString();
+        GameObjectLibrary.Instance.Weapons[index].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = quantity.ToString();
     }
 
     public void MenuButton()
