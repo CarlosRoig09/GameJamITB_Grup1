@@ -9,8 +9,8 @@ public class GroundBehaviour : ObjectBehaviour
     {
         if (GameManager.Instance.selected != null && GameManager.Instance.selected.TryGetComponent(out SeedBehaviour sb) && sb.Check())
         {
-            var plant = Instantiate(sb.GetPlant(), gameObject.transform);
-            plant.tag = "Plant";
+            //var plant = Instantiate(sb.GetPlant(), gameObject.transform);
+            //plant.tag = "Plant";
         }
     }
 }

@@ -12,7 +12,7 @@ public class SeedBehaviour : ObjectBehaviour, IPointerEnterHandler, IPointerExit
     {
         img = GetComponent<Image>();
         originalColor = img.color;
-        price = ((objectSO as PlantSO).plantPrefab.GetComponent<ObjectBehaviour>() as PlantBehaviour).GetPrice();
+        //price = ((objectSO as PlantSO).plantPrefab.GetComponent<ObjectBehaviour>() as PlantBehaviour).GetPrice();
     }
     protected override void Update()
     {
@@ -35,9 +35,9 @@ public class SeedBehaviour : ObjectBehaviour, IPointerEnterHandler, IPointerExit
             Use();
         }
     }
-    public GameObject GetPlant()
-    {
-        return plantPrefab;
-    }
+    //public GameObject GetPlant()
+    //{
+    //    return plantPrefab;
+    //}
 
 }
