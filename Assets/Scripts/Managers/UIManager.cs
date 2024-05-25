@@ -85,7 +85,7 @@ public class UIManager : MonoBehaviour, IOnStartGame
 
     public void ModifyTimeUI(string timer)
     {
-        GameObjectLibrary.Instance.TimerUI.GetComponent<TextMeshProUGUI>().text = "Time (hh/mm) : " + timer;
+        GameObjectLibrary.Instance.TimerUI.GetComponent<TextMeshProUGUI>().text = "hh/mm: " + timer;
     }
 
     public void ModifyDays(int days)
@@ -100,7 +100,7 @@ public class UIManager : MonoBehaviour, IOnStartGame
 
     public void ModifyWeaponQuantity(int quantity, int index)
     {
-        GameObjectLibrary.Instance.Weapons[index].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = quantity.ToString();
+        //GameObjectLibrary.Instance.Weapons[index].transform.GetChild(0).GetComponent<TextMeshProUGUI>().text = quantity.ToString();
     }
 
     public void MenuButton()

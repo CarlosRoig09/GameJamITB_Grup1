@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.SceneManagement;
+using UnityEngine.TextCore.Text;
 
 public enum GameFinish
 {
@@ -84,6 +86,8 @@ public class GameManager : MonoBehaviour
     [Header("Selectables")]
     public ObjectBehaviour selected;
     // Start is called before the first frame update
+    [Header("Fuente")]
+    public TMP_FontAsset font;
     void Start()
     {
         _calledStartGame = false;
@@ -94,6 +98,10 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        foreach (var item in FindObjectsOfType<TextMeshProUGUI>())
+        {
+            item.font = font;
+        }
         ChangeBetweenScene();
         //if (_scene == GameScenes.GameScene)
         //{
