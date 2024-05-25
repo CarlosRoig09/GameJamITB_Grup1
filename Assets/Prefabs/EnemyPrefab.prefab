@@ -102,7 +102,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   plantObjective: {fileID: 0}
   rb: {fileID: 0}
-  speed: 5
+  speed: 2
 --- !u!50 &6084034248747174183
 Rigidbody2D:
   serializedVersion: 4
