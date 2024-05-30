@@ -18,7 +18,7 @@ MonoBehaviour:
   behaviour: {fileID: 0}
   UIsprite: {fileID: 0}
   SoldPrice: 8
-  TimeGrow: 5
+  TimeGrow: 2
   buyPrice: 3
   time: 2
   waterNeed: 3

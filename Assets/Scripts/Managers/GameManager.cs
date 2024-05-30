@@ -65,6 +65,7 @@ public class GameManager : MonoBehaviour
     private float _timeChange;
     private float _timer;
     private TimeSpan _realTime;
+    public TimeSpan RealTime { get { return _realTime; } }
     private readonly TimeSpan _startTime = new(8, 0, 0);
     private int _days;
     public delegate void ChangeDay(DayCicle dayTime);
@@ -73,7 +74,7 @@ public class GameManager : MonoBehaviour
     private int _vchangeNight;
     [SerializeField]
     private int _vchangeDay;
-    public DayCicle _currentCycle;
+    public DayCicle CurrentCycle;
     private void Awake()
     {
         if (_instance != null)
@@ -171,18 +172,18 @@ public class GameManager : MonoBehaviour
             if (_realTime.Hours == _vchangeDay || _realTime.Hours == _vchangeNight)
                 if(_realTime.Minutes == 1)
                 {
-                    switch(_currentCycle)
+                    switch(CurrentCycle)
                     {
                         case DayCicle.Day:
-                            _currentCycle = DayCicle.Night;
+                            CurrentCycle = DayCicle.Night;
                             break;
                         case DayCicle.Night:
-                            _currentCycle = DayCicle.Day;
+                            CurrentCycle = DayCicle.Day;
                             break;
                     }
                     
                     /*Method to call all objects functionals in day or the spawner behaivour.*/
-                    OnChangeDay(_currentCycle);
+                    OnChangeDay(CurrentCycle);
                 }
         }
     }

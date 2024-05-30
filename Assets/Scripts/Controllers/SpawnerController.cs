@@ -13,7 +13,6 @@ public class SpawnerController : MonoBehaviour, IOnStartGame
     {
 
     }
-
     private void Update()
     {
         CheckAnyPlant();
@@ -45,7 +44,14 @@ public class SpawnerController : MonoBehaviour, IOnStartGame
     {
         _currentCycle = dayCicle;
         if (DayCicle.Night == dayCicle)
+        {
             canSpawn = true;
+            if (GameManager.Instance.RealTime.Days%2==0&&GameManager.Instance.RealTime.Days!=0)
+            {
+                if(spawnerCooldown>1.5f)
+                spawnerCooldown -= 1;
+            }
+        }
         else
         {
             foreach (var enemy in FindObjectsOfType<MonoBehaviour>(true).OfType<Enemy>().ToArray())

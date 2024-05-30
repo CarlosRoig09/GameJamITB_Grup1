@@ -8,9 +8,14 @@ public class ShieldCrossSO : WeaponSO
 {
     public override void OnUse()
     {
-   
-        Debug.Log("Cross");
-        Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        Instantiate(Weapon,mousePos,Quaternion.identity);
+
+        var waterController = GameObjectLibrary.Instance.WaterController.GetComponent<WaterController>();
+        if (Price <= waterController.WaterValue)
+        {
+            waterController.ModWater(Price * -1);
+            Debug.Log("Cross");
+            Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Instantiate(Weapon, mousePos, Quaternion.identity);
+        }
     }
 }

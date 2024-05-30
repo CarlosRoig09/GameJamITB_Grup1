@@ -3389,7 +3389,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EnemyPrefab: {fileID: 640679490273185824, guid: 6704015ffbe28594ab0424a07dd1f343, type: 3}
-  spawnerCooldown: 1
+  spawnerCooldown: 5
   canSpawn: 0
 --- !u!4 &1479098580
 Transform:
@@ -5232,6 +5232,26 @@ PrefabInstance:
     - target: {fileID: 2467968198638374861, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
       propertyPath: m_Name
       value: GameManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
+      propertyPath: LimitWater
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
+      propertyPath: _timeSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
+      propertyPath: _timeChange
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
+      propertyPath: CurrentCycle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3976286486143260978, guid: cfbbf8bc1c000814f8883bb9b4807688, type: 3}
+      propertyPath: WaterInitValue
+      value: 50
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

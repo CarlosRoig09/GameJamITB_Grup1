@@ -15,7 +15,7 @@ public class DayNightSprite : MonoBehaviour
     }
     private void Update()
     {
-        switch (GameManager.Instance._currentCycle)
+        switch (GameManager.Instance.CurrentCycle)
         {
             case DayCicle.Day:
                 if (TryGetComponent(out SpriteRenderer sr)) sr.sprite = daySprite;

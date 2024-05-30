@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlantBehaviour : ObjectBehaviour
 {
     private bool anim;
+    private int _countGrow;
     private void Awake()
     {
         var waterController = GameObjectLibrary.Instance.WaterController.GetComponent<WaterController>();
@@ -19,29 +20,36 @@ public class PlantBehaviour : ObjectBehaviour
 
         anim = false;
         GetComponent<Animator>().SetBool("Anim", anim);
-        StartCoroutine(Buyable(objectSO.TimeGrow));
         GameManager.Instance.OnChangeDay += Sold;
+        _countGrow = 0;
     }
 
-    private IEnumerator Buyable(float time)
-    {
-        yield return new WaitForSeconds(time);
-        anim = true;
-        GetComponent<Animator>().SetBool("Anim", anim);
-    }
+    //private IEnumerator Buyable(float time)
+    //{
+    //   
+    //}
 
 
     public void Sold(DayCicle dayCicle)
     {
-        if (dayCicle == DayCicle.Day&&anim)
+        if (dayCicle == DayCicle.Day && anim)
         {
             GameObjectLibrary.Instance.WaterController.GetComponent<WaterController>().ModWater(objectSO.SoldPrice);
             Destroy(gameObject);
         }
+
+        else if(dayCicle == DayCicle.Day)
+        {
+                _countGrow += 1;
+            if (_countGrow >= objectSO.TimeGrow)
+            {
+                anim = true;
+                GetComponent<Animator>().SetBool("Anim", anim);
+            }
+        }
     }
     private void OnDestroy()
     {
-        StopAllCoroutines();
         GameManager.Instance.OnChangeDay -= Sold;
     }
 }

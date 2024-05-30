@@ -23,12 +23,7 @@ public class WeaponBehaivour : ObjectBehaviour, IPointerEnterHandler, IPointerEx
 
         if (Check())
         {
-            var waterController = GameObjectLibrary.Instance.WaterController.GetComponent<WaterController>();
-            if ((objectSO as WeaponSO).Price <= waterController.WaterValue)
-            {
-                waterController.ModWater((objectSO as WeaponSO).Price * -1);
                 Use();
-            }
         }
     }
 
